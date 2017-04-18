@@ -5,6 +5,12 @@ function bootstrap {
   source "$shome/script/profile"
 
   pkg ensure security/gnupg21
+
+  case "$(uname -s)" in
+    Darwin)
+      brew install pinentry-mac
+      ;;
+  esac
 }
 
 bootstrap
