@@ -4,7 +4,7 @@ function version {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  local ver_gpg="$(gpg --version 2>/dev/null | awk '$1 == "gpg" { print $3 }' || true)"
+  local ver_gpg="$(gpg2 --version 2>/dev/null | awk '$1 == "gpg" { print $3 }' || true)"
   jq -n \
     --arg gpg "$ver_gpg" \
     '{gpg: $gpg}'
