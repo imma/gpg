@@ -10,6 +10,9 @@ function bootstrap {
     Darwin)
       brew install pinentry-mac
       ;;
+    *)
+      sudo aptitude install -y libpcsclite1 pcscd pcsc-tools
+      ;;
   esac
 }
 
