@@ -11,7 +11,7 @@ function bootstrap {
       brew install pinentry-mac
       ;;
     *)
-      sudo aptitude install -y libpcsclite1 pcscd pcsc-tools
+      ${NOSUDO} sudo aptitude install -y libpcsclite1 pcscd pcsc-tools
       ;;
   esac
 }
