@@ -13,6 +13,9 @@ function bootstrap {
     Ubuntu)
       ${NOSUDO} sudo aptitude install -y libpcsclite1 pcscd pcsc-tools
       ;;
+    Amazon)
+      ${NOSUDO} sudo yum install -y gnupg2-smime
+      ;;
   esac
 }
 
