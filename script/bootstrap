@@ -6,11 +6,11 @@ function bootstrap {
 
   pkg ensure security/gnupg21
 
-  case "$(uname -s)" in
+  case "${DISTRIB_ID}" in
     Darwin)
       brew install pinentry-mac
       ;;
-    *)
+    Ubuntu)
       ${NOSUDO} sudo aptitude install -y libpcsclite1 pcscd pcsc-tools
       ;;
   esac

@@ -4,11 +4,11 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ ! -x "$(type -P gpg2)" ]]; then
+  if ! type -P gpg2 >/dev/null; then
     return 1
   fi
 
-  case "$(uname -s)" in
+  case "${DISTRIB_ID}" in
     Darwin)
       if [[ ! -x "$(type -P pinentry-mac)" ]]; then
         return 1
