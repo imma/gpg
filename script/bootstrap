@@ -4,14 +4,7 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  case "${PKGSRC_BRANCH}" in
-    pkgsrc-2017Q2)  
-      pkg ensure security/gnupg21
-      ;;
-    *)
-      pkg ensure security/gnupg2
-      ;;
-  esac
+  pkg ensure security/gnupg2
 
   case "${DISTRIB_ID}" in
     Darwin)

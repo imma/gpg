@@ -4,17 +4,9 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if ! type -P gpg2 >/dev/null; then
+  if [[ "$($shome/script/version | jq -r '.gpg')" != "$GPG_VERSION" ]]; then
     return 1
   fi
-
-  case "${DISTRIB_ID}" in
-    Darwin)
-      if [[ ! -x "$(type -P pinentry-mac)" ]]; then
-        return 1
-      fi
-      ;;
-  esac
 
   return 0
 }
